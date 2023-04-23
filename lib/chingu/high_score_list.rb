@@ -91,7 +91,7 @@ module Chingu
     # Load data from previously specified @file
     #
     def load
-      @high_scores = Psych.load_file(@file)  if File.exists?(@file)
+      @high_scores = Psych.load_file(@file)  if File.file?(@file)
       @high_scores = @high_scores[0..@size]
     end
 

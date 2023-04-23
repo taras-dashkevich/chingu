@@ -58,7 +58,7 @@ module Chingu
       require 'psych'
       
       puts "* Loading game objects from #{file}" if debug
-      if File.exists?(file)
+      if File.file?(file)
         objects = Psych.load_file(file)
         objects.each do |object|
           object.each_pair do |klassname, attributes|

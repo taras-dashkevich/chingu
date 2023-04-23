@@ -54,10 +54,10 @@ module Chingu
         raise ArgumentError, ":frames must be of identical size" unless @frames[1..-1].all? {|i| i.width == @width and i.height == @height }
         
       else    
-        if file and not File.exists?(file)
+        if file and not File.file?(file)
           Gosu::Image.autoload_dirs.each do |autoload_dir|
             full_path = File.join(autoload_dir, file)
-            if File.exists?(full_path)
+            if File.file?(full_path)
               file = full_path
               break
             end

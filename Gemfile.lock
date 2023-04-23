@@ -29,6 +29,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw-ucrt
   x64-mingw32
 
 DEPENDENCIES
@@ -38,4 +39,4 @@ DEPENDENCIES
   watchr
 
 BUNDLED WITH
-   1.16.2
+   2.4.12
