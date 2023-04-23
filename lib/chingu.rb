@@ -23,18 +23,16 @@ require 'require_all'
 
 # require_rel 'chingu/**/*.rb'
 
-
-require "#{Dir.pwd}/lib/chingu/named_resource"
-
-Dir["#{Dir.pwd}/{lib}/**/*.rb"].sort.each { |f|  require f }
-
-#CHINGU_ROOT = File.dirname(File.expand_path(__FILE__))
+CHINGU_ROOT = File.dirname(File.expand_path(__FILE__))
 
 RUNNING_ROOT = File.dirname(File.expand_path($0))
 
 require 'rubygems' unless (RUBY_VERSION =~ /1\.9/ || RUBY_VERSION =~ /2\./)
 
 require 'gosu'
+
+require "#{CHINGU_ROOT}/chingu/named_resource"
+Dir["#{CHINGU_ROOT}/**/*.rb"].sort.each { |f|  require f }
 
 
 #require File.join(CHINGU_ROOT,"chingu","require_all") # Thanks to http://github.com/tarcieri/require_all !
