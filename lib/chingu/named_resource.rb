@@ -76,8 +76,6 @@ module Chingu
   #      end
   #
   module NamedResource
-
-
     #  Adds class methods when the NamedResource module is included
     #  in a class. (Here, we are assuming that the NamedResource
     #  module was included in a class called MyClass.)
