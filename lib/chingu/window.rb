@@ -21,7 +21,7 @@
 
 module Chingu
   #
-  # See http://www.libgosu.org/rdoc/classes/Gosu/Window.html
+  # See https://www.rubydoc.info/gems/gosu/Gosu/Window
   #
   # On top of that we add:
   # - Default widht / height, --fullscreen option from console
@@ -43,12 +43,17 @@ module Chingu
     
     attr_reader :root, :game_state_manager, :game_objects, :milliseconds_since_last_tick
     attr_accessor :factor, :cursor
-    
-    def initialize(width = 800, height = 600, fullscreen = false, update_interval = 16.666666)
+
+    # @option options [true, false] :fullscreen (false) whether to present the window in fullscreen mode.
+    # @option options [true, false] :resizable (false) whether the window can be resized by the user. Not useful if the window is either fullscreen or borderless.
+    # @option options [true, false] :borderless (false) whether the window should hide all its window chrome. Does not affect fullscreen windows.
+    # @option options [Float] :update_interval (16.666666) the interval between frames, in milliseconds.
+    def initialize(width = 800, height = 600, option = {})
       raise "Cannot create a new #{self.class} before the old one has been closed" if $window
 
-      fullscreen ||= ARGV.include?("--fullscreen")
-      $window = super(width, height, fullscreen, update_interval)
+      option[:fullscreen] ||= ARGV.include?("--fullscreen")
+
+      $window = super(width, height, option)
 			
       @root = File.dirname(File.expand_path($0))
       
@@ -105,6 +110,8 @@ module Chingu
     # Chingus core-logic / loop. Gosu will call this each game-iteration.
     #
     def update
+      super
+    
       #
       # Register a tick with our rather standard tick/framerate counter. 
       # Returns the amount of milliseconds since last tick. This number is used in all update()-calls.
@@ -154,6 +161,8 @@ module Chingu
     # Gosu will call this each game-iteration just after #update
     #
     def draw
+      super
+
       #
       # Draw all game objects associated with the main window.      
       #
@@ -170,6 +179,8 @@ module Chingu
     # .. Which then is responsible to send it to the right GameState(s)
     #
     def button_up(id)
+      super
+
       dispatch_button_up(id, self)
       @input_clients.each { |object| dispatch_button_up(id, object) unless object.paused? }
       @game_state_manager.button_up(id)
@@ -180,6 +191,8 @@ module Chingu
     # .. Which then is responsible to send it to the right GameState(s)
     #
     def button_down(id)
+      super
+
       dispatch_button_down(id, self)
       @input_clients.each { |object| dispatch_button_down(id, object) unless object.paused? }
       @game_state_manager.button_down(id)

@@ -22,31 +22,28 @@
 #
 # Core extensions to GOSU
 #
-module Gosu
-  class Image
-
+module ImageWithUndocumentedRetrofication
+  #
+  # Retrofy should be called just after the image is loaded.
+  # When retrofied an image will use a non-blurry zoom.
+  # This could be used to make each pixel a sharp 4 pixelblock => retrofeeling.
+  #
+  def retrofy
+    Gosu::enable_undocumented_retrofication
+    self
 
     #
-    # Retrofy should be called just after the image is loaded.
-    # When retrofied an image will use a non-blurry zoom.
-    # This could be used to make each pixel a sharp 4 pixelblock => retrofeeling.
+    # The below code depends on the bad opengl gem
+    # And it could affect other images anyhow... 
+    # So let's use Gosu::enable_undocumented_retrofication until further notice.
     #
-    def retrofy
-      Gosu::enable_undocumented_retrofication
-      self
 
-      #
-      # The below code depends on the bad opengl gem
-      # And it could affect other images anyhow... 
-      # So let's use Gosu::enable_undocumented_retrofication until further notice.
-      #
-
-      #glBindTexture(GL_TEXTURE_2D, self.gl_tex_info.tex_name)
-      #glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
-      #glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
-      #self
-    end
-
+    #glBindTexture(GL_TEXTURE_2D, self.gl_tex_info.tex_name)
+    #glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+    #glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    #self
   end
-
 end
+
+# Add the module to the inheritance chain of the class
+Gosu::Image.prepend(ImageWithUndocumentedRetrofication)
