@@ -133,5 +133,5 @@ module Gosu
       (path = find_file(name)) ? Gosu::Sample.new(path) : nil
     end
   end
-  # Sound = Sample # Gosu uses Sample, but Sound makes sense too.
+  Sound = Sample # Gosu uses Sample, but Sound makes sense too.
 end
