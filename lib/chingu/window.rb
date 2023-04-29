@@ -48,12 +48,12 @@ module Chingu
     # @option options [true, false] :resizable (false) whether the window can be resized by the user. Not useful if the window is either fullscreen or borderless.
     # @option options [true, false] :borderless (false) whether the window should hide all its window chrome. Does not affect fullscreen windows.
     # @option options [Float] :update_interval (16.666666) the interval between frames, in milliseconds.
-    def initialize(width = 800, height = 600, option = {})
+    def initialize(width = 800, height = 600, fullscreen = false, update_interval = 16.666666)
       raise "Cannot create a new #{self.class} before the old one has been closed" if $window
 
-      option[:fullscreen] ||= ARGV.include?("--fullscreen")
+      fullscreen ||= ARGV.include?("--fullscreen")
 
-      $window = super(width, height, option)
+      $window = super(width, height, fullscreen)
 			
       @root = File.dirname(File.expand_path($0))
       
@@ -202,8 +202,6 @@ module Chingu
     # Close the window when it is no longer required. Ensure this is done before a new window is initialized.
     #
     def close
-      super
-
       # Clear out all assets, tied to this $window, so that a new instance can create more.
       [Gosu::Image, Gosu::Song, Gosu::Font, Gosu::Sample].each do |asset|
         asset.clear

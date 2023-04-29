@@ -3,7 +3,7 @@ require 'spec_helper'
 module Chingu
   describe GameStateManager do  
     before :each do
-      @game = Chingu::Window.new      
+      @game = Chingu::Window.new
     end
 
     after :each do

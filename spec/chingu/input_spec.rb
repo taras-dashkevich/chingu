@@ -5,7 +5,7 @@ describe Chingu::Input do
   it "should map all defined Gosu input constants to Chinu symbols" do
 
     # Simpler if all the inputs are in a big hash.
-    input_names = Gosu.constants.select {|constant| constant =~ /^(?:Kb|Ms|Gp)/ }
+    input_names = Gosu.constants.select {|constant| constant =~ /^(?:KB|MS|GP)/ }
     input_names.delete_if {|name| name.to_s =~ /Range(?:Start|End)|Num$/ } # Special entries.
 
     gosu_inputs = input_names.inject({}) {|hash, name| hash[name] = Gosu.const_get name; hash }

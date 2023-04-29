@@ -24,125 +24,132 @@ module Chingu
     include Gosu
     
     #
-    # Ruby symbols describing http://www.libgosu.org/rdoc/classes/Gosu.html
+    # Ruby symbols describing https://www.rubydoc.info/gems/gosu/Gosu
     #
     CONSTANT_TO_SYMBOL = {
-      Kb0 => [:zero],
-      Kb1 => [:one],
-      Kb2 => [:two],
-      Kb3 => [:three],
-      Kb4 => [:four],
-      Kb5 => [:five],
-      Kb6 => [:six],
-      Kb7 => [:seven],
-      Kb8 => [:eight],
-      Kb9 => [:nine],
+      KB_0 => :zero,
+      KB_1 => :one,
+      KB_2 => :two,
+      KB_3 => :three,
+      KB_4 => :four,
+      KB_5 => :five,
+      KB_6 => :six,
+      KB_7 => :seven,
+      KB_8 => :eight,
+      KB_9 => :nine,
     
-      KbBackspace => [:backspace],
-      KbDelete    => [:delete, :del],
-      KbDown      => [:down_arrow, :down],
-      KbEnd       => [:end],
-      KbEnter     => [:enter],
-      KbEscape    => [:escape, :esc],
+      KB_BACKSPACE  => [:backspace],
+      KB_DELETE     => [:delete, :del],
+      KB_DOWN       => [:down_arrow, :down],
+      KB_END        => [:end],
+      KB_ENTER      => [:enter],
+      KB_ESCAPE     => [:escape, :esc],
 
-      KbHome        => [:home],
-      KbInsert      => [:insert, :ins],
-      KbLeft        => [:left_arrow, :left],
-      KbLeftAlt     => [:left_alt, :lalt],
-      KbLeftControl => [:left_control, :left_ctrl, :lctrl],
-      KbLeftShift   => [:left_shift, :lshift],
-      KbLeftMeta    => [:left_meta, :lmeta],
+      KB_HOME          => [:home],
+      KB_INSERT        => [:insert, :ins],
+      KB_LEFT          => [:left_arrow, :left],
+      KB_LEFT_ALT      => [:left_alt, :lalt],
+      KB_LEFT_CONTROL  => [:left_control, :left_ctrl, :lctrl],
+      KB_LEFT_SHIFT    => [:left_shift, :lshift],
+      KB_LEFT_META     => [:left_meta, :lmeta],
 
-      KbComma           => [:",", :comma],
-      KbApostrophe      => [:"'", :apostrophe],
-      KbBacktick        => [:"~", :backtick],
-      KbMinus           => [:minus],
-      KbEqual           => [:"=", :equal],
-      KbBracketLeft     => [:"}", :bracket_left],
-      KbBracketRight    => [:"{", :bracket_right],
-      KbBackslash       => [:backslash],
-      KbSlash           => [:slash],
-      KbSemicolon       => [:";", :semicolon],
-      KbPeriod          => [:period],
-      KbISO             => [:ISO],
+      KB_COMMA             => [:",", :comma],
+      KB_APOSTROPHE        => [:"'", :apostrophe],
+      KB_BACKTICK          => [:"~", :backtick],
+      KB_MINUS             => [:minus],
+      KB_EQUALS            => [:"=", :equal],
+      KB_LEFT_BRACKET      => [:"}", :bracket_left],
+      KB_RIGHT_BRACKET     => [:"{", :bracket_right],
+      KB_BACKSLASH         => [:backslash],
+      KB_SLASH             => [:slash],
+      KB_SEMICOLON         => [:";", :semicolon],
+      KB_PERIOD            => [:period],
+      KB_ISO               => [:ISO],
 
-      KbNumpadAdd       => [:"+", :add, :plus],
-      KbNumpadDivide    => [:"/", :divide],
-      KbNumpadMultiply  => [:"*", :multiply],
-      KbNumpadSubtract  => [:"-", :subtract, :numpad_minus, :nm_minus],
-      KbPageDown        => [:page_down],
-      KbPageUp          => [:page_up],
-      KbPause           => [:pause],
-      KbReturn          => [:return],
-      KbRight           => [:right_arrow, :right],
-      KbRightAlt        => [:right_alt, :ralt],
-      KbRightControl    => [:right_control, :right_ctrl, :rctrl],
-      KbRightShift      => [:right_shift, :rshift],
-      KbRightMeta       => [:right_meta, :rmeta],
-      KbSpace           => [:" ", :space],
-      KbTab             => [:tabulator, :tab],
-      KbUp              => [:up_arrow, :up],
-      KbPrintScreen     => [:print_screen],
-      KbScrollLock      => [:scroll_lock],
-      KbCapsLock        => [:caps_lock],
-      KbNumpadDelete    => [:numpad_delete],
+      KB_NUMPAD_PLUS      => [:"+", :add, :plus],
+      KB_NUMPAD_DIVIDE    => [:"/", :divide],
+      KB_NUMPAD_MULTIPLY  => [:"*", :multiply],
+      KB_NUMPAD_MINUS     => [:"-", :subtract, :numpad_minus, :nm_minus],
+      KB_PAGE_DOWN        => [:page_down],
+      KB_PAGE_UP          => [:page_up],
+      KB_PAUSE            => [:pause],
+      KB_RETURN           => [:return],
+      KB_RIGHT            => [:right_arrow, :right],
+      KB_RIGHT_ALT        => [:right_alt, :ralt],
+      KB_RIGHT_CONTROL    => [:right_control, :right_ctrl, :rctrl],
+      KB_RIGHT_SHIFT      => [:right_shift, :rshift],
+      KB_RIGHT_META       => [:right_meta, :rmeta],
+      KB_SPACE           => [:" ", :space],
+      KB_TAB             => [:tabulator, :tab],
+      KB_UP              => [:up_arrow, :up],
+      KB_PRINT_SCREEN      => [:print_screen],
+      KB_SCROLL_LOCK       => [:scroll_lock],
+      KB_CAPS_LOCK        => [:caps_lock],
+      KB_NUMPAD_DELETE     => [:numpad_delete],
       
-      MsLeft            => [:left_mouse_button, :mouse_left],
-      MsMiddle          => [:middle_mouse_button, :mouse_middle],
-      MsRight           => [:right_mouse_button, :mouse_right],
-      MsWheelDown       => [:mouse_wheel_down, :wheel_down],
-      MsWheelUp         => [:mouse_wheel_up, :wheel_up],
+      MS_LEFT             => [:left_mouse_button, :mouse_left],
+      MS_MIDDLE           => [:middle_mouse_button, :mouse_middle],
+      MS_RIGHT            => [:right_mouse_button, :mouse_right],
+      MS_WHEEL_DOWN       => [:mouse_wheel_down, :wheel_down],
+      MS_WHEEL_UP         => [:mouse_wheel_up, :wheel_up],
 
-      GpDpadLeft        => [:dpad_left],
-      GpDpadRight       => [:dpad_right],
-      GpDpadUp          => [:dpad_up],
-      GpDpadDown        => [:dpad_down],
-      GpLeftStickYAxis  => [:left_stick_y_axis],
-      GpRightStickYAxis  => [:right_stick_y_axis],
-      GpLeftStickXAxis  => [:left_stick_x_axis],
-      GpRightStickXAxis  => [:right_stick_x_axis],
+      GP_DPAD_LEFT            => [:dpad_left],
+      GP_DPAD_RIGHT           => [:dpad_right],
+      GP_DPAD_UP              => [:dpad_up],
+      GP_DPAD_DOWN            => [:dpad_down],
+      GP_LEFT_STICK_Y_AXIS    => [:left_stick_y_axis],
+      GP_LEFT_STICK_X_AXIS    => [:left_stick_x_axis],
+      GP_LEFT_TRIGGER_AXIS    => [:left_rigger_axis],
+      GP_RIGHT_STICK_Y_AXIS   => [:left_stick_x_axis],
+      GP_RIGHT_STICK_X_AXIS   => [:right_stick_y_axis],
+      GP_RIGHT_TRIGGER_AXIS   => [:right_rigger_axis],
     }
+
+    (0..9).each do |number|
+      CONSTANT_TO_SYMBOL[eval("KB_#{number}")] = ["ms_other_#{number.to_s}".to_sym]
+    end
 
     # MsOther, 0-7
     (0..7).each do |number|
-      CONSTANT_TO_SYMBOL[eval("MsOther#{number}")] = ["ms_other_#{number.to_s}".to_sym]
+      CONSTANT_TO_SYMBOL[eval("MS_OTHER_#{number}")] = ["ms_other_#{number.to_s}".to_sym]
     end
     
     # Letters, A-Z
     ("A".."Z").each do |letter|
-      CONSTANT_TO_SYMBOL[eval("Kb#{letter}")] = [letter.downcase.to_sym]
+      CONSTANT_TO_SYMBOL[eval("KB_#{letter}")] = [letter.downcase.to_sym]
     end
 
     # Numbers, 0-9
     (0..9).each do |number|
-      CONSTANT_TO_SYMBOL[eval("Kb#{number.to_s}")] = [number.to_s.to_sym]
+      CONSTANT_TO_SYMBOL[eval("KB_#{number.to_s}")] = [number.to_s.to_sym]
     end
 
     # Numpad-numbers, 0-9
     (0..9).each do |number|
-      CONSTANT_TO_SYMBOL[eval("KbNumpad#{number.to_s}")] = ["numpad_#{number.to_s}".to_sym]
+      CONSTANT_TO_SYMBOL[eval("KB_NUMPAD_#{number.to_s}")] = ["numpad_#{number.to_s}".to_sym]
     end
 
     #F-keys, F1-F12
     (1..12).each do |number|
-      CONSTANT_TO_SYMBOL[eval("KbF#{number.to_s}")] = ["f#{number.to_s}".to_sym, "F#{number.to_s}".to_sym]
+      CONSTANT_TO_SYMBOL[eval("KB_F#{number.to_s}")] = ["f#{number.to_s}".to_sym, "F#{number.to_s}".to_sym]
     end
 
     (0..3).each do |number|
-      CONSTANT_TO_SYMBOL[eval("Gp#{number.to_s}DpadLeft")] = ["dpad_#{number.to_s}_left".to_sym]
-      CONSTANT_TO_SYMBOL[eval("Gp#{number.to_s}DpadRight")] = ["dpad_#{number.to_s}_right".to_sym]
-      CONSTANT_TO_SYMBOL[eval("Gp#{number.to_s}DpadUp")] = ["dpad_#{number.to_s}_up".to_sym]
-      CONSTANT_TO_SYMBOL[eval("Gp#{number.to_s}DpadDown")] = ["dpad_#{number.to_s}_down".to_sym]
+      CONSTANT_TO_SYMBOL[eval("GP_#{number.to_s}_DPAD_LEFT")] = ["dpad_#{number.to_s}_left".to_sym]
+      CONSTANT_TO_SYMBOL[eval("GP_#{number.to_s}_DPAD_RIGHT")] = ["dpad_#{number.to_s}_right".to_sym]
+      CONSTANT_TO_SYMBOL[eval("GP_#{number.to_s}_DPAD_UP")] = ["dpad_#{number.to_s}_up".to_sym]
+      CONSTANT_TO_SYMBOL[eval("GP_#{number.to_s}_DPAD_DOWN")] = ["dpad_#{number.to_s}_down".to_sym]
     end
 
     def gamepad_key(number, key, args = {})
       number = number.zero? ? '' : number - 1
 
-      constant_name = "Gp#{number}"
-      constant_name += args[:prefix].to_s.capitalize
-      constant_name += key.to_s.to_s.capitalize
+      constant_name = ["GP", number.to_s]
+      constant_name << args[:prefix].to_s.upcase
+      constant_name << key.to_s.to_s.upcase
+      constant_name = constant_name.compact.flatten.reject(&:empty?)
 
-      CONSTANT_TO_SYMBOL[eval(constant_name)] = [
+      CONSTANT_TO_SYMBOL[eval(constant_name.join('_'))] = [
           "gamepad_button#{number}_#{key}".to_sym,
           "gamepad#{number}_#{key}".to_sym,
           "pad_button#{number}_#{key}".to_sym,
