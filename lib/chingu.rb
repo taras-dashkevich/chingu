@@ -19,10 +19,6 @@
 #
 #++
 
-require 'require_all'
-
-# require_rel 'chingu/**/*.rb'
-
 CHINGU_ROOT = File.dirname(File.expand_path(__FILE__))
 
 RUNNING_ROOT = File.dirname(File.expand_path($0))
@@ -34,17 +30,5 @@ require 'gosu'
 require "#{CHINGU_ROOT}/chingu/named_resource"
 Dir["#{CHINGU_ROOT}/**/*.rb"].sort.each { |f|  require f }
 
-
-#require File.join(CHINGU_ROOT,"chingu","require_all") # Thanks to http://github.com/tarcieri/require_all !
-
-
 # Seems like we need to include chingu/helpers first for BasicGameObject
 # and GameObject to get the correct class_inheritable_accessor
-
-#require_all "#{CHINGU_ROOT}/chingu/helpers"
-#require_all "#{CHINGU_ROOT}/chingu/traits"
-#require_all "#{CHINGU_ROOT}/chingu/async"
-#require_all "#{CHINGU_ROOT}/chingu/async_tasks"
-#require_all "#{CHINGU_ROOT}/chingu"
-#require_all "#{CHINGU_ROOT}/chingu/version"
-

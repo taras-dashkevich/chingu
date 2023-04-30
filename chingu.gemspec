@@ -22,8 +22,6 @@ Gem::Specification.new do |s|
 
 
   s.add_dependency('gosu', '~> 1.4.5')
-  s.add_dependency('require_all', '~> 3.0.0', '>= 1.4.0')
-
   s.add_development_dependency('rake', '~> 12.0.0', '>= 12.0.0' )
 end
 

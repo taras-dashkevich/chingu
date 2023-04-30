@@ -8,7 +8,7 @@
 
 require 'gosu'
 
-require_rel File.join('..', 'helpers', 'rotation_center' )
+require "#{CHINGU_ROOT}/chingu/helpers/rotation_center"
 
 module Chingu
 

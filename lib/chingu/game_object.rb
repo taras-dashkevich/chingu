@@ -19,12 +19,9 @@
 #
 #++
 
-require_rel 'basic_game_object'
-
-require_rel 'helpers'
-
-require_rel 'traits'
-
+require "#{CHINGU_ROOT}/chingu/basic_game_object"
+Dir["#{CHINGU_ROOT}/chingu/helpers/**/*.rb"].sort.each { |f| require f }
+Dir["#{CHINGU_ROOT}/chingu/traits/**/*.rb"].sort.each { |f| require f }
 
 module Chingu
   #

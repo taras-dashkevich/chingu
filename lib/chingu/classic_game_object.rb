@@ -18,8 +18,8 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
 #++
+Dir["#{CHINGU_ROOT}/chingu/helpers/**/*.rb"].sort.each { |f| require f }
 
-require_rel 'helpers'
 module Chingu
   #
   # GameObject inherits from BasicGameObject to get traits and some class-methods like .all and .destroy

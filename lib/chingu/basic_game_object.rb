@@ -1,5 +1,6 @@
-require_rel 'helpers/class_inheritable_accessor'
-require_rel 'inflector'
+
+require "#{CHINGU_ROOT}/chingu/helpers/class_inheritable_accessor"
+require "#{CHINGU_ROOT}/chingu/inflector"
 
 module Chingu
   #
